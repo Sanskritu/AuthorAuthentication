@@ -1,0 +1,19 @@
+server:
+  applicationConnectors:
+    - type: http
+      port: 9081
+  adminConnectors:
+    - type: http
+      port: 9008
+
+
+database:
+  driverClass: com.mysql.cj.jdbc.Driver
+  user: root
+  password:
+  url: jdbc:mysql://localhost:3306/db
+  properties:
+    hibernate.hbm2ddl.auto: update
+    hibernate.dialect: org.hibernate.dialect.MySQLDialect  #org.hibernate.dialect.MySQL5InnoDBDialect
+
+

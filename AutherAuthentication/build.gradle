@@ -1,0 +1,46 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+repositories {
+    mavenCentral()
+}
+
+run {
+    args = ['server', 'dev.yml']
+}
+
+
+dependencies {
+    implementation 'io.dropwizard:dropwizard-core:2.0.0'
+    implementation 'io.dropwizard:dropwizard-jackson:2.0.0'
+    implementation 'org.projectlombok:lombok:1.18.22'
+    implementation 'org.junit.jupiter:junit-jupiter-api:5.9.0'
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
+    testImplementation 'io.dropwizard:dropwizard-testing:2.0.0'
+    implementation 'io.dropwizard:dropwizard-hibernate:2.0.10'
+    implementation 'com.mysql:mysql-connector-j:8.0.31'
+    testImplementation 'io.dropwizard:dropwizard-testing:2.0.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    testImplementation 'org.mockito:mockito-junit-jupiter:4.6.1'
+    testImplementation 'org.mockito:mockito-core:4.6.1'
+    testImplementation 'org.assertj:assertj-core:3.23.1'
+    implementation 'com.google.inject:guice:4.1.0'
+}
+
+mainClassName = 'org.example.Main'
+
+jar {
+    manifest {
+        attributes 'Main-Class': mainClassName
+    }
+}
+test {
+    useJUnitPlatform()
+}
